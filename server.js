@@ -156,6 +156,9 @@ app.delete(
   }
 )
 
+app.get('/', (req, res) => {
+  res.send({ message: 'API Listening' })
+})
 userService
   .connect()
   .then(() => {
