@@ -9,10 +9,12 @@ dotenv.config()
 const userService = require('./user-service.js')
 
 const HTTP_PORT = process.env.PORT || 8080
+console.log(HTTP_PORT)
 
 let ExtractJwt = passportJWT.ExtractJwt
 let JwtStrategy = passportJWT.Strategy
 
+console.log(process.env.JWT_SECRET !== null)
 let jwtOptions = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme('jwt'),
   secretOrKey: process.env.JWT_SECRET,
