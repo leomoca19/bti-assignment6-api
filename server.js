@@ -25,9 +25,9 @@ let strategy = new JwtStrategy(jwtOptions, (jwt_payload, next) => {
 
   let user = jwt_payload
     ? {
-        _id: jwt_payload._id,
-        userName: jwt_payload.userName,
-      }
+      _id: jwt_payload._id,
+      userName: jwt_payload.userName,
+    }
     : false
 
   next(null, user)
@@ -38,6 +38,10 @@ app.use(passport.initialize())
 
 app.use(express.json())
 app.use(cors())
+
+app.get('/', (req, res) => {
+  res.send({ message: 'Api listening' })
+})
 
 app.post('/api/user/register', (req, res) => {
   userService
