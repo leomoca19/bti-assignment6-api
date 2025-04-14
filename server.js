@@ -43,7 +43,7 @@ app.get('/', (req, res) => {
   res.send({ message: 'Api listening' })
 })
 
-app.get('/api//user', (req, res) => {
+app.get('/api/user', (req, res) => {
   res.send({ message: 'Good route' })
 })
 
